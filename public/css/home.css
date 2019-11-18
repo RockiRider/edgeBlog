@@ -1,0 +1,7 @@
+header.masthead {
+    background-color: #1b2225;;
+}
+
+header.masthead .overlay {
+    opacity: 0;
+}
