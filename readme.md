@@ -5,12 +5,12 @@ It catogorises posts by specific subjects and also allows me to upload images fo
 
 ##### Tech Used
 
-> Nodejs
-> Edgejs
-> Okta Authorisation
-> MongoDB via Mongoose 
+* Nodejs
+* Edgejs
+* Okta Authorisation
+* MongoDB via Mongoose 
 
->All the other NPM packages listed in the .json files
+* All the other NPM packages listed in the .json files
 
 ##### Imporvements to be made
 
@@ -20,8 +20,8 @@ It catogorises posts by specific subjects and also allows me to upload images fo
 
 ###### Bugs
 
->Ordering posts wrong 
->Image = Undefined when redoing submission for posts (Need Error Handling)
->Mongoose Depreciation warning. Set useFindAndModify option to false
->[DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated
+- Ordering posts wrong 
+- Image = Undefined when redoing submission for posts (Need Error Handling)
+- Mongoose Depreciation warning. Set useFindAndModify option to false
+- [DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated
 
