@@ -20,7 +20,10 @@ const storePostController = require("./controllers/storePost");
 const getPostController = require("./controllers/getPost");
 const getAdminController = require("./controllers/getAdmin");
 const getLogoutController = require("./controllers/logout");
-const deletePostControlelr = require("./controllers/logout");
+const handlePostController = require('./controllers/handlePost');
+const editPostController = require('./controllers/editPost');
+const submitEditController = require('./controllers/submitEdit');
+
 
 app.use(
   session({
@@ -79,68 +82,10 @@ app.post("/posts/store", oidc.ensureAuthenticated(), storePostController);
 app.get("/admin", oidc.ensureAuthenticated(), getAdminController);
 app.get("/logout", getLogoutController);
 
-app.post("/post/handle/", oidc.ensureAuthenticated(), function(req, res) {
-  if (req.body.delete != undefined) {
-    var gotId = req.body.delete;
-    Post.findByIdAndRemove(gotId, req.body, function(err, data) {
-      if (!err) {
-        console.log("Deleted");
-      } else {
-        console.log("ERROR!!");
-      }
-    });
-    //console.log(req.body.edit);
-    res.redirect("/admin");
-  } else {
-    var gotId = req.body.edit;
-    editId = gotId;
-    res.redirect("/post/handle/edit");
-  }
-});
+app.post("/post/handle/", oidc.ensureAuthenticated(),handlePostController);
+app.get("/post/handle/edit", oidc.ensureAuthenticated(),editPostController);
+app.post("/post/handle/submit/edit", oidc.ensureAuthenticated(),submitEditController);
 
-app.get("/post/handle/edit", oidc.ensureAuthenticated(), function(req, res) {
-  Post.findById(editId, function(err, post) {
-    if (!err) {
-      res.render("edit", {
-        post
-      });
-    } else {
-      res.redirect("/admin");
-    }
-  });
-});
-app.post("/post/handle/submit/edit", oidc.ensureAuthenticated(), function(
-  req,
-  res
-) {
-  var updated = req.body;
-  if (!req.files || Object.keys(req).files  === 0) {
-    console.log("No UPLOAD");
-    Post.findByIdAndUpdate(editId, {updated}, { new: true }, function(err,model) {
-      if (!err) {
-        res.redirect("/admin");
-      } else {
-        res.redirect("/");
-      }
-    });
-  }else{
-    let file = req.files.image;  
-    console.log("Yes Upload");
-    file.mv(path.resolve(__dirname, '.', 'public/posts', file.name), function(err) {
-      Post.findByIdAndUpdate(editId, {updated, image: `/posts/${file.name}`}, { new: true }, function(err,model) {
-        if (!err) {
-          res.redirect("/admin");
-        } else {
-          res.redirect("/");
-        }
-      });
-      if(err){
-        //Create Popup Here!!!!!
-        console.log("Error with upload");
-      }
-    });
-  }
-});
 
 /*
   app.post('/forces-logout', oidc.forceLogoutAndRevoke(), (req, res) => {
