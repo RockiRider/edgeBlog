@@ -1,8 +1,9 @@
 require("dotenv").config();
 const path = require("path");
 const express = require("express");
-const mongoose = require("mongoose");
 const { config, engine } = require("express-edge");
+const edge = require("edge.js");
+const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const Post = require("./database/models/Post");
@@ -37,7 +38,9 @@ const oidc = new ExpressOIDC({
   issuer: `${process.env.OKTA_ORG_URL}/oauth2/default`,
   client_id: process.env.OKTA_CLIENT_ID,
   client_secret: process.env.OKTA_CLIENT_SECRET,
-  redirect_uri: process.env.REDIRECT_URL,
+  //redirect_uri: process.env.REDIRECT_URL,
+  appBaseUrl: 'http://localhost:3000',
+  logoutRedirectUri :'http://localhost:3000',
   scope: "openid profile",
   routes: {
     callback: {
@@ -80,7 +83,7 @@ app.get("/post/:id", getPostController);
 app.get("/posts/new", oidc.ensureAuthenticated(), createPostController);
 app.post("/posts/store", oidc.ensureAuthenticated(), storePostController);
 app.get("/admin", oidc.ensureAuthenticated(), getAdminController);
-app.get("/logout", getLogoutController);
+app.post("/logout",oidc.forceLogoutAndRevoke(), getLogoutController);
 
 app.post("/post/handle/", oidc.ensureAuthenticated(),handlePostController);
 app.get("/post/handle/edit", oidc.ensureAuthenticated(),editPostController);
@@ -92,6 +95,7 @@ app.post("/post/handle/submit/edit", oidc.ensureAuthenticated(),submitEditContro
     // Nothing here will execute, after the redirects the user will end up wherever the `routes.logoutCallback.afterCallback` specifies (default `/`)
   });
 */
+
 oidc.on("ready", () => {
   app.listen(port, () => console.log(`My Blog App listening on port ${port}!`));
 });
