@@ -1,0 +1,35 @@
+@layout('layouts.app')
+
+@section('content')
+<section class="d-flex flex-column central-admin">
+    <h1 class="d-flex justify-content-center">Hello Admin!</h1>
+    <div class="d-flex justify-content-center">
+        <a href="/posts/new">
+            <button type="button" class="btn btn-lg btn-primary">New Post</button>
+        </a>
+        <a>
+          <button id="logout-button" type="submit" class="btn btn-secondary btn-lg">Logout</button>
+        </a>
+    </div>
+</section>
+
+<section class="d-flex flex-column central-management">
+    @each(post in posts)
+        <div class="post-preview">
+          <a href="/post/{{ post._id }}">
+            <h2 class="post-title">
+              {{ post.title }}
+            </h2>
+          </a>
+        </div>
+        <form action="/post/handle/" method="POST" class="manage-post">
+              <button type="submit" name="delete" value="{{ post._id }}" class="btn btn-danger">Delete</button>
+              <button type="submit" name ="edit"  value="{{ post._id }}" class="btn btn-info">Edit</button>
+        </form>
+        <hr>
+      @endeach
+</section>
+
+<script>
+</script>
+@endsection

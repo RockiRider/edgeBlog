@@ -197,6 +197,7 @@ a {
       transition: background-color 0.2s;
       /* Force Hardware Acceleration in WebKit */
       transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
       -moz-backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
     }
@@ -408,8 +409,10 @@ a {
     display: block;
     margin: 0;
     transition: top 0.3s ease, opacity 0.3s ease;
+    /* Ignored 
     vertical-align: middle;
     vertical-align: baseline;
+    */
     opacity: 0;
   }
   
@@ -469,5 +472,14 @@ a {
   .btn-lg {
     font-size: 16px;
     padding: 25px 35px;
+  }
+
+  /* Admin Page */
+  .central-admin{
+    margin-top: 100px;
+  }
+  .central-admin a{
+    margin-top: 50px;
+    color:rgb(153, 153, 153);
   }
 
