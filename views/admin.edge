@@ -13,16 +13,16 @@
     </div>
 </section>
 
-<section class="d-flex flex-column central-management">
+<section class="d-flex flex-column central-management allPosts">
     @each(post in posts)
-        <div class="post-preview">
-          <a href="/post/{{ post._id }}">
-            <h2 class="post-title">
+        <div class="post-preview d-flex justify-content-center singularPost">
+          <a class="post-title" href="/post/{{ post._id }}">
+            <h2>
               {{ post.title }}
             </h2>
           </a>
         </div>
-        <form action="/post/handle/" method="POST" class="manage-post">
+        <form action="/post/handle/" method="POST" class="d-flex justify-content-center manage-post">
               <button type="submit" name="delete" value="{{ post._id }}" class="btn btn-danger">Delete</button>
               <button type="submit" name ="edit"  value="{{ post._id }}" class="btn btn-info">Edit</button>
         </form>

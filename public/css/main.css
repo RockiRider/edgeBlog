@@ -477,9 +477,21 @@ a {
   /* Admin Page */
   .central-admin{
     margin-top: 100px;
+    margin-bottom: 50px;
   }
   .central-admin a{
     margin-top: 50px;
     color:rgb(153, 153, 153);
   }
+  .allPosts a{
+    color: #ada9a9;
+  }
+  .allPosts a:hover{
+    color: #fff;
+  }
+  /* If needed later
+  .singularPost{
+    
+  }
+  */
 
