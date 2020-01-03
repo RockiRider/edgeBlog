@@ -494,4 +494,6 @@ a {
     
   }
   */
-
+  #logoutClick{
+    cursor: pointer;
+  }

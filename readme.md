@@ -27,4 +27,4 @@ It catogorises posts by specific subjects and also allows me to upload images fo
 4. [DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated
 5.  "Why" Link on HomePage
 6.  Subject Links not working
-7. 
+7.  Okta logout not working properly
