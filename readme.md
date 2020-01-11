@@ -13,6 +13,9 @@ It catogorises posts by specific subjects and also allows me to upload images fo
 
 * All the other NPM packages listed in the .json files
 
+###### Excluded Files
+.env file is excluded for security reasons.
+
 ##### Imporvements to be made
 
 - [x] Finish the Admin Page Design
