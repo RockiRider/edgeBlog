@@ -17,6 +17,7 @@ It catogorises posts by specific subjects and also allows me to upload images fo
 
 - [x] Finish the Admin Page Design
 - [x] Finish the Home Page Design
+- [x] Finish the "Why" Page Design
 - [ ] Fix Bugs
 
 ###### Bugs
