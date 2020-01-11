@@ -12,4 +12,5 @@ module.exports = (req, res) => {
             res.redirect("/");
         });
     })
+    module.exports.stored = true;
 }

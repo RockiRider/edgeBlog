@@ -1,3 +1,9 @@
+html,body{
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+}
+
 body {
     background: #1b2225;
     font-family: 'Lora', 'Times New Roman', serif;
@@ -329,8 +335,10 @@ a {
     }
   }
   
+
+
   .post-preview > a {
-    color: #212529;
+    color: #fff;
   }
   
   .post-preview > a:focus, .post-preview > a:hover {
@@ -356,7 +364,7 @@ a {
     color: #868e96;
   }
   
-  .post-preview > .post-meta > a {
+  .post-preview > a {
     text-decoration: none;
     color: #212529;
   }
@@ -432,9 +440,10 @@ a {
   form .form-group:first-child .floating-label-form-group {
     border-top: 1px solid #dee2e6;
   }
-  
+
   footer {
-    padding: 50px 0 65px;
+    height: 50px;
+    margin-bottom: 100px;
   }
   
   footer .list-inline {
@@ -446,6 +455,7 @@ a {
     font-size: 14px;
     margin-bottom: 0;
     text-align: center;
+    color: #fff;
   }
   
   .btn {

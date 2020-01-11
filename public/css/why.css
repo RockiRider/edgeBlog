@@ -1,0 +1,182 @@
+@font-face {
+  font-family: "bondi_regularregular";
+  src: url("/fonts/bondi-webfont.woff2") format("woff2"),
+    url("/fonts/bondi-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+.entry {
+  height: 100%;
+  width: 100%;
+  background: -webkit-linear-gradient(270deg, rgb(72, 54, 255), rgb(252, 76, 93)) 0% 0% / 200% 100%;
+  background: -o-linear-gradient(270deg, rgb(72, 54, 255), rgb(252, 76, 93)) 0% 0% / 200% 100%;
+  background: -moz-linear-gradient(270deg, rgb(72, 54, 255), rgb(252, 76, 93)) 0% 0% / 200% 100%;
+  background: linear-gradient(270deg, rgb(72, 54, 255), rgb(252, 76, 93)) 0% 0% / 200% 100%;
+  animation: gradientBG 15s ease infinite;
+  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
+}
+.lamp-anim {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transform: translate3d(0, 0, 0); 
+}
+.fixer{
+  height: 100%;
+  width: 100%;
+  margin-top: auto;
+}
+.entry h1 {
+  position: absolute;
+  z-index: 1;
+  font-size: 7vw;
+  width: 100%;
+  text-align: center;
+}
+.entry h5{
+  text-align: center;
+  margin-top: 10vw;
+  width: 100%;
+}
+
+/* Second Page */
+
+.faq {
+  height: 100%;
+  width: 100%;
+  background: -webkit-linear-gradient(70deg, #374785 40%, #F76C6C 40%);
+  background: -o-linear-gradient(70deg, #374785 40%, #F76C6C 40%);
+  background: -moz-linear-gradient(70deg, #374785 40%, #F76C6C 40%);
+  background: linear-gradient(70deg, #374785 40%, #F76C6C 40%);
+  color: #ffffff;
+}
+.split{
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.left{
+  left: 0;
+}
+.right{
+  right: 0;
+}
+.centralPos{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.adjustion{
+  top: 40%;
+  left:30%;
+}
+.questionsArea{
+  margin-top: 15vh;
+  margin-left: 5  px;
+}
+
+.questionsArea h5{
+  margin-bottom: 5vh;
+  cursor: pointer;
+}
+.textArea{
+  visibility: hidden;
+  height: 100%;
+  max-width: 40vw;
+}
+.textArea p{
+  padding-top:110px;
+  color:#ffffff;
+  font-size: 2vw;
+}
+/* Third Page */
+
+.finalOne{
+  background-color: #A64AC9;
+}
+.fixerSecond{
+  height: 50%;
+  width: 100%;
+}
+button{
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  width: 100%;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  color: #5B296E;
+  height: 2.5em;
+}
+
+
+/* Animations */
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Responsive */
+@media only screen and (max-width: 1001px) {
+  .faq {
+    background-color: #fff;
+  }
+  .right{
+    background-color: #F76C6C;
+  }
+  .left{
+    background-color: #374785;
+  }
+  .adjustion{
+    left: 40%;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .textArea p{
+    font-size: 3vw;
+  }
+  .questionsArea{
+    margin-top: 30px;
+  }
+  .adjustion h2{
+    margin-left: 5px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .textArea p{
+    font-size: 4vw;
+  }
+  .questionsArea{
+    margin-top: 30px;
+  }
+  .adjustion h2{
+    margin-left: 5px;
+    margin-top: 150px;
+  }
+}

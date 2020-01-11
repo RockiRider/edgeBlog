@@ -13,7 +13,7 @@ const session = require("express-session");
 const okta = require("@okta/okta-sdk-nodejs");
 const { ExpressOIDC } = require("@okta/oidc-middleware");
 
-
+const getWhyController = require("./controllers/whyPage")
 const createPostController = require("./controllers/createPost");
 const homePageController = require("./controllers/homePage");
 const storePostController = require("./controllers/storePost");
@@ -23,20 +23,14 @@ const handlePostController = require('./controllers/handlePost');
 const editPostController = require('./controllers/editPost');
 const submitEditController = require('./controllers/submitEdit');
 
-var confirm = false
+var checkRecent;
+var rowCount = 1;
+var maxRow = 4;
+var rowArray = [];
 
 const app = express();
 const port = 3000;
-// session support is required to use ExpressOIDC
 
-
-/* 
-
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
-*/
 
 app.use(
   session({
@@ -46,7 +40,7 @@ app.use(
   })
 );
 
-
+//Do we need this?
 var oktaClient = new okta.Client({
   orgUrl: 'https://dev-540851.okta.com',
   token: '00XwyEGZYCvIlmAitvEIjS1CjmbP889gVS7hB_UjoF'
@@ -74,6 +68,8 @@ mongoose
   .then(() => "You are now connected to Mongo!")
   .catch(err => console.error("Something went wrong", err));
 app.use(oidc.router);
+
+//Do we need this?
 app.use((req, res, next) => {
   if (!req.userContext) {
     return next();
@@ -107,8 +103,16 @@ app.use(
   })
 );
 
+/* If I need to count documents 
+app.use((req, res, next) => {
+  Post.countDocuments({}, function(err, count){
+    console.log( "Number of docs: ", count );
+
+});
+*/
+
 const storePost = require("./middleware/storePost");
-var editId;
+var editId; //Do we need this?
 app.use("/posts/store", storePost);
 // Database
 const connection = mongoose.connection;
@@ -117,6 +121,7 @@ const connection = mongoose.connection;
 
 app.get("/", homePageController);
 app.get("/post/:id", getPostController);
+app.get("/why", getWhyController);
 app.get("/posts/new", oidc.ensureAuthenticated(), createPostController);
 app.post("/posts/store", oidc.ensureAuthenticated(), storePostController);
 app.get("/admin", oidc.ensureAuthenticated(), getAdminController);
