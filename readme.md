@@ -3,7 +3,9 @@
 My fully functional blog which allows me to create, edit and delete blog posts.
 It catogorises posts by specific subjects and also allows me to upload images for the posts.
 
-Major Updates are needed and I would recommend using EJS instead of Edgejs, if you want to stick to a template engine. If not I would recommend rebuilding all of this as a NextJS project.
+
+### Disclaimer
+**Major Updates are needed** and I would recommend using EJS instead of Edgejs, if you want to stick to a template engine. If not I would recommend rebuilding all of this as a NextJS project.
 
 ##### Tech Used
 
